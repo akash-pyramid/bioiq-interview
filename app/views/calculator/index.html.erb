@@ -1,0 +1,10 @@
+<div style="text-align: center;">
+	<h1>Calculator</h1>
+	<div>
+		<%= form_tag :action=> "evaluate_expression" %>
+			<label>Input example: </label>
+			<%= text_field_tag :input_value %></br></br>
+			<label><%= submit_tag("Calculate", class: "btn btn-primary", style: "width: 15%, margin-right: 0%;") %></br></label>
+		</form>
+	</div>
+</div>
