@@ -55,10 +55,6 @@ module ExpressionEvaluator
 			return 1
 		when '*', '/'
 			return 2
-		when '/'
-			return 2
-		when '^'
-			return 3
 		else
 			return -1
 		end
@@ -88,7 +84,7 @@ module ExpressionEvaluator
 	end
 	
 	def is_operator(c)
-		c == '+' || c == '-' || c == '/' || c == '*' || c=='^'
+		c == '+' || c == '-' || c == '/' || c == '*'
 	end
 
 end
