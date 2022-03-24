@@ -3,8 +3,9 @@
 	<div>
 		<%= form_tag :action=> "evaluate_expression" %>
 			<label>Input example: </label>
-			<%= text_field_tag :input_value %></br></br>
+			<%= text_field_tag :input_value, '', :onkeypress=> "return isNumberAndOperator(event)" %></br></br>
 			<label><%= submit_tag("Calculate", class: "btn btn-primary submit-btn") %></br></label>
 		</form>
 	</div>
 </div>
+<%= javascript_include_tag "validate_input_fields.js" %>
