@@ -5,6 +5,8 @@ module ExpressionEvaluator
 		operations = []
 	
 		i = 0
+		raise "Invalid input" if ["*", "/"].include?(exp[0])
+		exp.insert(0, '0') if ["+", "-"].include?(exp[0])
 		while i < exp.length
 			c = exp[i]
 			if c.to_i.to_s == c  # check if it is number
