@@ -1,13 +1,13 @@
 <div class="div-center">
-	<h1>Calculator</h1>
-	<div>
-		<%= form_tag(evaluate_expression_path(format: :js), method: 'post', remote: true) do %>
-			<label>Input example: </label>
-			<%= text_field_tag :input_value, '', :onkeypress=> "return isNumberAndOperator(event)" %></br></br>
-			<label><%= submit_tag("Calculate", class: "btn btn-primary submit-btn") %></br></label>
-		<% end %></br>
-		<div id="result"></div>
-	</div></br>
-	<%= link_to "Home", root_path %>
-	<%= link_to "Conversion", conversion_path %>
+  <h1>Calculator</h1>
+  <div>
+    <%= form_tag(evaluate_expression_path(format: :js), method: 'post', remote: true) do %>
+      <label>Input example: </label>
+      <%= text_field_tag :input_value, '', :onkeypress=> "return isNumberAndOperator(event)" %></br></br>
+      <label><%= submit_tag("Calculate", class: "btn btn-primary submit-btn") %></br></label>
+    <% end %></br>
+    <div id="result"></div>
+  </div></br>
+  <%= link_to "Home", root_path %>
+  <%= link_to "Conversion", conversion_path %>
 </div>

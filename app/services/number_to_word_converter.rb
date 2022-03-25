@@ -1,7 +1,7 @@
 class NumberToWordConverter
 
-	def initialize
-		@numbers_to_name = {
+  def initialize
+    @numbers_to_name = {
       1000000 => "million",
       1000 => "thousand",
       100 => "hundred",
@@ -33,21 +33,21 @@ class NumberToWordConverter
       2 => "two",
       1 => "one"
     }
-	end
+  end
 
-	def in_words(input_number)
-		str = ""
-		@numbers_to_name.each do |num, name|
-			if input_number == 0
-				return str
-			elsif input_number.to_s.length == 1 && input_number/num > 0
-				return str + "#{name}"      
-			elsif input_number < 100 && input_number/num > 0
-				return str + "#{name}" if input_number%num == 0
-				return str + "#{name} " + in_words(input_number%num)
-			elsif input_number/num > 0
-				return str + in_words(input_number/num) + " #{name} " + in_words(input_number%num)
-			end
-		end
-	end
+  def in_words(input_number)
+    str = ""
+    @numbers_to_name.each do |num, name|
+      if input_number == 0
+        return str
+      elsif input_number.to_s.length == 1 && input_number/num > 0
+        return str + "#{name}"      
+      elsif input_number < 100 && input_number/num > 0
+        return str + "#{name}" if input_number%num == 0
+        return str + "#{name} " + in_words(input_number%num)
+      elsif input_number/num > 0
+        return str + in_words(input_number/num) + " #{name} " + in_words(input_number%num)
+      end
+    end
+  end
 end
