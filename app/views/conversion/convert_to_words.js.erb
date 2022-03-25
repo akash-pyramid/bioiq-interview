@@ -1,0 +1,5 @@
+<% if @success.present? %>
+  $("#result").empty().append("O/p: <%= @success.humanize %>");
+<% else %>
+  $("#result").empty().append("Error: <%= @error %>");
+<% end %>

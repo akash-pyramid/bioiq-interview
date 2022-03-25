@@ -1,10 +1,13 @@
-<div style="text-align: center;">
+<div class="div-center">
 	<h1>Convert Number to Words</h1>
 	<div>
-		<%= form_tag :action=> "convert_to_words" %>
+		<%= form_tag(convert_to_words_path(format: :js), method: 'post', remote: true) do %>
 			<label>Input example: </label>
 			<%= text_field_tag :input_value, '', :onkeypress=> "return isNumberKey(event)" %></br></br>
 			<label><%= submit_tag("Convert", class: "btn btn-primary submit-btn") %></br></label>
-		</form>
-	</div>
+		<% end %></br>
+		<div id="result"></div>
+	</div></br>
+	<%= link_to "Home", root_path %>
+	<%= link_to "Calculator", calculator_path %>
 </div>
