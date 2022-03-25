@@ -13,15 +13,19 @@ describe CalculatorController do
 
   describe "POST #evaluate_expression" do
     it "should evaluate #43 as o/p" do
-      post :evaluate_expression, params: {input_value: "5*7+8"}
-      expect(assigns(:result)).to eq(43)
+      post :evaluate_expression, xhr: true, params: {input_value: "5*7+8"}
+      expect(assigns(:success)).to eq(43)
+    end
+
+    it "should verify #43 as o/p" do
+      post :evaluate_expression, xhr: true, params: {input_value: "12+2*7+8"}
+      expect(assigns(:success)).to_not eq(43)
+    end
+
+    it "should validate input is numeric and operator only" do
+      post :evaluate_expression, xhr: true, params: {input_value: "ab+1212+2*7+8"}
+      expect(assigns(:error)).to eq("Please input numeric and operators only")
     end
   end
 
-  describe "POST #evaluate_expression" do
-    it "should evaluate #43 as o/p" do
-      post :evaluate_expression, params: {input_value: "12+2*7+8"}
-      expect(assigns(:result)).to_not eq(43)
-    end
-  end
 end
