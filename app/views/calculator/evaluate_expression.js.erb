@@ -1,5 +1,7 @@
 <% if @success.present? %>
   $("#result").empty().append("O/p: <%= @success %>");
+<% elsif params[:input_value].blank? %>
+  $("#result").empty().append("Error: Please input value above!!");
 <% else %>
   $("#result").empty().append("Error: <%= @error %>");
 <% end %>

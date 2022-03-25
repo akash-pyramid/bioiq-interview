@@ -26,6 +26,11 @@ describe CalculatorController do
       post :evaluate_expression, xhr: true, params: {input_value: "ab+1212+2*7+8"}
       expect { raise "Invalid input" }.to raise_error(RuntimeError)
     end
+
+    it "should validate input is blank" do
+      post :evaluate_expression, xhr: true, params: {input_value: ""}
+      expect(assigns(:input_value)).to be_empty
+    end
   end
 
 end
