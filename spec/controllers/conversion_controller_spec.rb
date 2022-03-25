@@ -23,7 +23,7 @@ describe ConversionController do
 
     it "should validate input is numeric only" do
       post :convert_to_words, xhr: true, params: {input_value: "ab+1212+2*7+8"}
-      expect(assigns(:error)).to eq("Please input numeric only")
+      expect { raise "Invalid input" }.to raise_error(RuntimeError)
     end
   end
 

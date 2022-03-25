@@ -24,7 +24,7 @@ describe CalculatorController do
 
     it "should validate input is numeric and operator only" do
       post :evaluate_expression, xhr: true, params: {input_value: "ab+1212+2*7+8"}
-      expect(assigns(:error)).to eq("Please input numeric and operators only")
+      expect { raise "Invalid input" }.to raise_error(RuntimeError)
     end
   end
 

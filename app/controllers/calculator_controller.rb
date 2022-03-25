@@ -5,10 +5,11 @@ class CalculatorController < ApplicationController
 	end
 
 	def evaluate_expression
-		if Shared.is_number_and_operator?(params[:input_value])
-			@success = get_evaluation(params[:input_value])
-		else
-			@error = "Please input numeric and operators only"
+		begin
+			input_value = Shared.is_number_and_operator?(params[:input_value])
+			@success = get_evaluation(input_value)
+		rescue StandardError => e
+			@error = e
 		end
 		respond_to do |format|
 			format.js
